@@ -2,10 +2,15 @@ import React from "react";
 import PropTypes from "prop-types";
 import { FaTemperatureHigh, FaTachometerAlt } from "react-icons/fa";
 import { GiWaterDrop, GiWindyStripes } from "react-icons/gi";
+import { VscLoading } from "react-icons/vsc";
 
 const AirConditionsView = ({ todayForecast }) => {
   if (!todayForecast) {
-    return <div>Loading...</div>;
+    return (
+      <div className="flex justify-center items-center h-full w-full">
+        <VscLoading className="text-4xl animate-spin text-gray-500" />
+      </div>
+    );
   }
 
   // Extract relevant items from the forecast data
@@ -15,7 +20,9 @@ const AirConditionsView = ({ todayForecast }) => {
     <div className="flex flex-col p-4  justify-between text-white rounded-lg h-full">
       <div className="flex flex-row justify-between ">
         <div className="text-lg font-semibold">Air Conditions</div>
-        <div className="text-sm  bg-blue-600  rounded-xl shadow-3xl hover:brightness-125 text-center items-center flex flex-col p-2 cursor-pointer">See more</div>
+        <div className="text-sm  bg-blue-600  rounded-xl shadow-3xl hover:brightness-125 text-center items-center flex flex-col p-2 cursor-pointer">
+          See more
+        </div>
       </div>
       <div className="flex flex-row justify-around gap-8">
         <div className="flex flex-col justify-between gap-4">

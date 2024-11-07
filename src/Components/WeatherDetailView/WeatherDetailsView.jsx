@@ -7,6 +7,8 @@ import AirConditionsView from "../AirConditions/AirConditionsView";
 import { getCurrentWeather, getForeCastLatLong } from "./WeatherDetailsRemote";
 import { ERR_CODE } from "../../Utilities/applicationConstants";
 const WeatherDetailsView = ({ selectedCity }) => {
+
+  
   const [place, setPlace] = useState();
   const [image, setImage] = useState();
   const [temp, setTemp] = useState();
