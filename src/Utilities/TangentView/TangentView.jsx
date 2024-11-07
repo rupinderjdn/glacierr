@@ -7,7 +7,7 @@ const TangentView = ({ data, layout }) => {
         className={`flex ${
           layout === "row"
             ? "items-center flex-row space-x-4 overflow-x-auto"
-            : "flex-col space-y-4 overflow-y-auto h-[80vh]" // Add h-80 or any height to enable vertical scrolling
+            : "flex-col space-y-4  overflow-y-scroll  h-[95%]" // Add h-80 or any height to enable vertical scrolling
         }`}
       >
         {data &&

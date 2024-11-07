@@ -6,6 +6,7 @@ import WeekForecastView from "../WeekForecast/WeekForecastView";
 import AirConditionsView from "../AirConditions/AirConditionsView";
 import { getCurrentWeather, getForeCastLatLong } from "./WeatherDetailsRemote";
 import { ERR_CODE } from "../../Utilities/applicationConstants";
+import { setCityDataToReduxLatLong } from "../Searchbar/SearchBarController";
 const WeatherDetailsView = ({ selectedCity }) => {
 
   
@@ -22,15 +23,16 @@ const WeatherDetailsView = ({ selectedCity }) => {
     if (selectedCity == undefined) {
       navigator.geolocation.getCurrentPosition((position) => {
         const { latitude, longitude } = position.coords;
+        setCityDataToReduxLatLong(latitude,longitude);
 
         getForeCastLatLong(latitude,longitude,7).then((response) => {
           console.log(response);
           if (response !== ERR_CODE) {
+            
             const { current, location, forecast } = response;
             const { condition, temp_c } = current;
             const { text, icon } = condition;
             const { country, name, region } = location;
-
             setPlace(`${name}, ${region}, ${country}`);
             setImage(icon);
             setTemp(temp_c);
@@ -56,7 +58,7 @@ const WeatherDetailsView = ({ selectedCity }) => {
   return (
     <div className="grid grid-cols-3 gap-4 text-color-1 capitalize h-full">
       <div className="flex flex-col  col-span-3 md:col-span-2">
-        <div className="h-1/3 flex-1  p-2 m-2 rounded-xl ">
+        <div className="h-1/3 flex-1  p-2 m-2  rounded-xl ">
           <CurrentCityWeatherView
             place={place}
             image={image}
@@ -71,7 +73,7 @@ const WeatherDetailsView = ({ selectedCity }) => {
           <AirConditionsView todayForecast={currentWeather}/>
         </div>
       </div>
-      <div className="platform-gradient-3 m-2 h-full bg-platform-2 p-2 shadow-3xl rounded-xl">
+      <div className="platform-gradient-3 m-2 mb-0 h-[88vh] bg-platform-2 p-2 shadow-3xl rounded-xl">
         <WeekForecastView weekForecast={weekForecast}/>
       </div>
     </div>

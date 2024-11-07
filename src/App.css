@@ -19,6 +19,10 @@
   background-color: #0A1320ff; /* Background color of the scrollbar track */
 }
 
+textarea:focus,  input:focus{
+  outline: none !important;
+}
+
 :root {
   
   /* --color-primary: #dde5ea; */

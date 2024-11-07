@@ -1,5 +1,5 @@
 import { ERR_CODE } from "../Utilities/applicationConstants";
-import { API_KEY, CURRENT_WEATHER_URL, FORECAST_URL } from "./properties";
+import { API_KEY, CURRENT_WEATHER_URL, FORECAST_URL, SEARCH_URL } from "./properties";
 
 export const fetchAsyncRequest = async (url) => {
   try {
@@ -39,5 +39,25 @@ export const getForecastUrl = (lat, long, days) => {
     days +
     "&aqi=yes" +
     "&alerts=no";
+  return url;
+};
+
+
+export const getSearchUrl = (lat,long) => {
+  let url =
+    SEARCH_URL +
+    "?key=" +
+    API_KEY +
+    "&q=" +
+    lat+","+long;
+  return url;
+};
+export const getSearchUrlName = (city) => {
+  let url =
+    SEARCH_URL +
+    "?key=" +
+    API_KEY +
+    "&q=" +
+    city;
   return url;
 };
