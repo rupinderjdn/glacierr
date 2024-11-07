@@ -12,7 +12,6 @@ function App() {
   const selectedTab = useSelector(
     (state) => state.startupData.data[SELECTED_TAB]
   );
-  console.log(selectedTab);
   return (
     <>
       <div className="h-full platform-gradient-1 w-full">
