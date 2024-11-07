@@ -1,0 +1,233 @@
+/* fonts in this file go from high to low in size as scroll go down */
+.font-platform-xl{
+    font-size: 1.7rem !important;
+    @media only screen and (min-width: 700px) {
+        font-size: 1.2rem !important;
+    }
+    @media only screen and (min-width: 850px) {
+        font-size: 1.3rem !important;
+    }
+    @media only screen and (min-width: 1000px) {
+        font-size: 1.3rem !important;
+    }
+    @media only screen and (min-width: 1500px) {
+        font-size: 1.4rem !important;
+    }
+    @media only screen and (min-width: 1800px) {
+        font-size: 1.5rem !important;
+    }
+    @media only screen and (min-width: 2100px) {
+        font-size: 1.6rem !important;
+    }
+}
+.font-platform-1{
+    font-size: 1.4rem !important;
+    @media only screen and (min-width: 700px) {
+        font-size: 0.7rem !important;
+    }
+    @media only screen and (min-width: 850px) {
+        font-size: 0.8rem !important;
+    }
+    @media only screen and (min-width: 1000px) {
+        font-size: 0.9rem !important;
+    }
+    @media only screen and (min-width: 1500px) {
+        font-size: 1.1rem !important;
+    }
+    @media only screen and (min-width: 1800px) {
+        font-size: 1.2rem !important;
+    }
+    @media only screen and (min-width: 2100px) {
+        font-size: 1.3rem !important;
+    }
+}
+
+.font-platform-2{
+    font-size: 1.3rem !important;
+    @media only screen and (min-width: 700px) {
+        font-size: 0.6rem !important;
+    }
+    @media only screen and (min-width: 850px) {
+        font-size: 0.7rem !important;
+    }
+    @media only screen and (min-width: 1000px) {
+        font-size: 0.8rem !important;
+    }
+
+    @media only screen and (min-width: 1500px) {
+        font-size: 0.9rem !important;
+    }
+    @media only screen and (min-width: 1800px) {
+        font-size: 1.05rem !important;
+    }
+    @media only screen and (min-width: 2100px) {
+        font-size: 1.2rem !important;
+    }
+}
+
+
+.font-platform-3{
+    font-size: 1.2rem !important;
+    @media only screen and (min-width: 700px) {
+        font-size: 0.5rem !important;
+    }
+    @media only screen and (min-width: 850px) {
+        font-size: 0.6rem !important;
+    }
+    @media only screen and (min-width: 1000px) {
+        font-size: 0.7rem !important;
+    }
+
+    @media only screen and (min-width: 1500px) {
+        font-size: 0.9rem !important;
+    }
+    @media only screen and (min-width: 1800px) {
+        font-size: 1rem !important;
+    }
+    @media only screen and (min-width: 2100px) {
+        font-size: 1.1rem !important;
+    }
+}
+
+.font-platform-4{
+    font-size: 1.1rem !important;
+    @media only screen and (min-width: 700px) {
+        font-size: 0.4rem !important;
+    }
+    @media only screen and (min-width: 850px) {
+        font-size: 0.5rem !important;
+    }
+    @media only screen and (min-width: 1000px) {
+        font-size: 0.6rem !important;
+    }
+
+    @media only screen and (min-width: 1500px) {
+        font-size: 0.8rem !important;
+    }
+    @media only screen and (min-width: 1800px) {
+        font-size: 0.9rem !important;
+    }
+    @media only screen and (min-width: 2100px) {
+        font-size: 1rem !important;
+    }
+}
+
+.font-platform-4{
+    font-size: 1rem !important;
+    @media only screen and (min-width: 700px) {
+        font-size: 0.3rem !important;
+    }
+    @media only screen and (min-width: 850px) {
+        font-size: 0.4rem !important;
+    }
+    @media only screen and (min-width: 1000px) {
+        font-size: 0.5rem !important;
+    }
+
+    @media only screen and (min-width: 1500px) {
+        font-size: 0.7rem !important;
+    }
+    @media only screen and (min-width: 1800px) {
+        font-size: 0.8rem !important;
+    }
+    @media only screen and (min-width: 2100px) {
+        font-size: 0.9rem !important;
+    }
+}
+
+
+.HeaderBarClass{
+    display: flex;
+    flex-direction: row;
+}
+
+.NavbarMediaClass{
+    flex: 1 1 7%;
+    @media only screen and (min-width: 2100px) {
+        flex: 1 1 5%;
+    }
+}
+.UIScreenMediaClass{
+    flex: 1 1 93%;
+    @media only screen and (min-width: 2100px) {
+        flex: 1 1 95%;
+    }
+}
+.BodyMediaClass{
+    flex: 1 1 70%;
+    @media only screen and (min-width: 2100px) {
+        flex: 1 1 70%;
+    }
+}
+
+.FooterMediaClass{
+    flex: 1 1 30%;
+    @media only screen and (min-width: 2100px) {
+        flex: 1 1 30%;
+    }
+}
+
+.headerBarHeight{
+    height : 4rem !important;
+    @media only screen and (min-width: 2000px) {
+        height : 5rem !important;
+    }
+}
+.optionDetailItemWidth{
+    width : 6rem !important;
+    @media only screen and (min-width: 1500px) {
+        width : 6.5rem !important;
+    }
+    @media only screen and (min-width: 1800px) {
+        width : 7rem !important;
+    }
+    @media only screen and (min-width: 2000px) {
+        width: 9rem !important;
+    }
+}
+.formItemWidth{
+    width : 10rem ;
+    @media only screen and (min-width: 1200px) {
+        width : 11rem ;
+    }
+    @media only screen and (min-width: 1500px) {
+        width : 12rem ;
+    }
+    @media only screen and (min-width: 1800px) {
+        width : 13rem ;
+    }
+    @media only screen and (min-width: 2000px) {
+        width: 14rem ;
+    }
+}
+.formItemWidthNonWrapped{
+    width : 17rem ;
+    @media only screen and (min-width: 1200px) {
+        width : 18rem ;
+    }
+    @media only screen and (min-width: 1500px) {
+        width : 19rem ;
+    }
+    @media only screen and (min-width: 1800px) {
+        width : 21rem ;
+    }
+    @media only screen and (min-width: 2000px) {
+        width: 23rem ;
+    }
+}
+.formItemMaxHeight{
+    max-height: 18px !important;
+    min-width: none !important;
+    @media only screen and (min-width: 1200px) {
+        max-height: 21px !important;
+    }
+    @media only screen and (min-width: 1500px) {
+        max-height: 24px !important;
+    }
+    @media only screen and (min-width: 1800px) {
+        max-height: 27px !important;
+    }
+    @media only screen and (min-width: 2000px) {
+        max-height: 30px !important;
+    }
+}

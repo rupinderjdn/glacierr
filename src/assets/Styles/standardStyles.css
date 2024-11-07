@@ -1,0 +1,305 @@
+/* PrerequisiteStyles */
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    outline: none;
+}
+
+/* application container */
+#root {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+table {
+    box-sizing: border-box;
+    width: 100%;
+}
+
+tr {
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+td {
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+th {
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+thead {
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+tbody {
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+.displayNone {
+    display: none;
+    transition: display 0.3s ease;
+}
+
+.displayFull {
+    display: contents;
+    transition: display 0.3s ease;
+}
+
+.pointer:hover {
+    cursor: pointer;
+}
+
+/* Ends here */
+
+
+/* Color classes for platform */
+/* .color-platform-primary {
+    color: var(--color-bg-1);
+} */
+
+
+
+/* Ends Here */
+
+/* Background Color for platform */
+.bg-platform-1 {
+    background-color: var(--color-bg-1);
+}
+
+.bg-platform-2 {
+    background-color: var(--color-bg-2) !important;
+}
+
+.bg-platform-3 {
+    background-color: var(--color-bg-3) !important;
+}
+
+.bg-platform-4 {
+    background-color: var(--color-bg-4) !important;
+}
+
+.bg-transparent {
+    background-color: var(--color-bg-transparent) !important;
+}
+.bg-platform-highlight{
+    background-color: var(--color-highlight) !important;
+}
+/* Ends Here */
+
+/* Border Color For Platform */
+.border-platform {
+    border-color: var(--color-border-1) !important;
+}
+
+.border-platform-secondary {
+    border-color: var(--color-border-2) !important;
+}
+
+.border-platform-3 {
+    border-color: var(--color-border-3) !important;
+}
+.border-platform-4 {
+    border-color: var(--color-border-4) !important;
+}
+
+
+/* Ends Here */
+
+/* Shadow Classes For platform */
+.shadow-right-hover:hover {
+    box-shadow: 10px 0px 10px -3px var(--color-shadow);
+    transition: box-shadow 0.3s ease;
+}
+
+.shadow-bottom {
+    box-shadow: 0px 4px 4px -5px rgb(104, 103, 103);
+}
+
+.shadow-3xl {
+    box-shadow: 0 4px 8px 0 var(--color-shadow-2), 0 6px 20px 0 var(--color-shadow-3);
+}
+
+.hover-shadow-1:hover {
+    background-color: var(--color-bg-3);
+    transition: background-color 0.3s ease;
+    box-shadow: 0 4px 8px 0 var(--color-shadow-2), 0 6px 20px 0 var(--color-shadow-3);
+    filter: brightness(1.5);
+}
+
+/* Ends Here */
+
+/* Text Colors for platform */
+.text-color-1 {
+    color: var(--color-text) !important;
+}
+
+/* Buttons platform */
+.button-platform-main {
+    padding: .1rem .3rem;
+    margin: 0.25rem;
+    cursor: pointer;
+    border-radius: 5px;
+    border: solid 1px whitesmoke;
+    font-weight: 700;
+    font-size: larger;
+    box-shadow: 0 4px 8px 0 var(--color-shadow-2), 0 6px 20px 0 var(--color-shadow-3);
+}
+
+.button-platform-main:hover {
+    transition: .2s;
+    background-color: whitesmoke;
+    color: rgb(22, 22, 22);
+}
+
+
+.button-platform-1 {
+    background-color: var(--color-bg-3) !important;
+    padding: .1rem .3rem;
+    margin: 0.25rem;
+    cursor: pointer;
+    box-shadow: 0 4px 8px 0 var(--color-shadow-2), 0 6px 20px 0 var(--color-shadow-3);
+}
+.button-platform-2 {
+    background-color: inherit !important;
+    padding: .1rem .3rem;
+    margin: 0.25rem;
+    cursor: pointer;
+    filter: brightness(0.8);
+    border: 1px solid var(--color-border-1);
+    box-shadow: 0 4px 8px 0 var(--color-shadow-2), 0 6px 20px 0 var(--color-shadow-3);
+}
+.button-platform-2:hover {
+    filter: brightness(1.5);
+    transition: filter 0.3s ease;
+}
+.cursor-drag{
+    cursor:grab;
+}
+.cursor-drag:active{
+    cursor:grabbing;
+}
+.button-platform-1:hover {
+    filter: brightness(1.5);
+    transition: filter 0.3s ease;
+}
+.brightness-hover-1{
+    filter : brightness(0.9);
+}
+.brightness-hover-1:hover{
+    filter: brightness(2.5);
+    transition: filter 0.3s ease;
+}
+.label-platform-1{
+    padding: .3rem .5rem;
+}
+.value-platform-1{
+    background-color: var(--color-bg-3) !important;
+    padding: .3rem .5rem;
+}
+.disabled{
+    opacity: 0.3 !important;
+    background-color: #bbb7b7 !important;
+}
+
+/* Flex */
+.flex-45{
+    flex: 1 1 45%;
+}
+.flex-55{
+    flex: 1 1 55%;
+}
+/* Ends */
+
+/* Gradients */
+
+.platform-gradient-main{
+    background-image: linear-gradient(to right, whitesmoke, #fbc7d4);
+}
+.platform-gradient-1{
+    background:linear-gradient(to right, var(--color-bg-1),var(--color-bg-3))
+}
+.platform-gradient-2{
+    background:linear-gradient(to right, var(--color-bg-3),var(--color-bg-1))
+}
+.platform-gradient-3{
+    background:linear-gradient(to bottom, var(--color-bg-1),var(--color-bg-3))
+}
+.platform-gradient-4{
+    background:linear-gradient(to bottom, var(--color-bg-1),var(--color-bg-3) 50%,var(--color-bg-1))
+}
+.platform-gradient-5{
+    background:linear-gradient(to top, var(--color-bg-1),var(--color-bg-3))
+}
+.platform-gradient-3-hover{
+    background:linear-gradient(to bottom, var(--color-bg-1),var(--color-bg-3))
+}
+.platform-gradient-3-hover:hover{
+    background:linear-gradient(to top, var(--color-bg-1),var(--color-bg-3))
+}
+
+
+/* Ends  */
+
+.rounded-none{
+    border-radius: 0 !important;
+}
+.underline-animation {
+    display: inline-block;
+    position: relative;
+    text-decoration: none;
+}
+
+.underline-animation::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -4px; /* Space between text and underline */
+    width: 0;
+    height: 2px; /* Thickness of the underline */
+    background-color: #aca19f; /* Underline color */
+    transition: width 0.3s ease-in-out; /* Transition for the animation */
+}
+
+.underline-animation:hover::after {
+    width: 100%; /* Full width on hover */
+}
+
+.slide-in {
+    transform: translateX(0%);
+    transition: transform 0.5s ease-in-out;
+}
+
+.slide-out {
+    transform: translateX(-100%);
+    transition: transform 0.5s ease-in-out;
+}
+.inward-shadow {
+    box-shadow: inset 0 0 30px 0px rgba(0,0,0,0.6)
+}
+
+
+.custom-underline {
+    position: relative;
+    display: inline-block;
+  }
+  
+  .custom-underline::after {
+    content: "";
+    position: absolute;
+    left: 1rem;
+    bottom: -2px; /* Adjust this value to set the gap */
+    width: 30%; /* Adjust this value to set the underline width */
+    height: 2px; /* Adjust this value to set the underline thickness */
+    background-color: currentColor; /* Uses the text color for the underline */
+  }
+
+  text-4xl{
+    font-size: 2.2rem;
+  }
