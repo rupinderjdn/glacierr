@@ -1,22 +1,41 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import TangentView from "../../Utilities/TangentView/TangentView";
+import { getShortDayName } from "../../Utilities/commonUtils";
+import { VscLoading } from "react-icons/vsc";
 
-const WeekForecastView = () => {
-  // Default seven-day forecast data
-  const defaultData = [
-    { date: "Mon", condition: "Sunny", temperature: 25 },
-    { date: "Tue", condition: "Cloudy", temperature: 22 },
-    { date: "Wed", condition: "Rainy", temperature: 19 },
-    { date: "Thu", condition: "Windy", temperature: 21 },
-    { date: "Fri", condition: "Snowy", temperature: -1 },
-    { date: "Sat", condition: "Stormy", temperature: 18 },
-    { date: "Sun", condition: "Foggy", temperature: 17 },
-  ];
+const WeekForecastView = ({ weekForecast }) => {
+  const [forecastData, setForecastData] = useState();
+
+  useEffect(() => {
+    if (weekForecast !== undefined) {
+      const data = weekForecast.map((singleDay) => {
+        const { date, day } = singleDay;
+        const dayName = new Date(date).getDay();
+        const { condition, avgtemp_c } = day;
+        const { text, icon } = condition;
+
+        return {
+          date: getShortDayName(dayName),
+          image: icon,
+          condition: text,
+          temperature: avgtemp_c,
+        };
+      });
+
+      setForecastData(data);
+    }
+  }, [weekForecast]);
 
   return (
-    <div className="p-4">
-      <h2>7-day forecast</h2>
-      <TangentView data={defaultData} layout="column" />
+    <div className="p-2 h-full">
+      <h2>7-day Forecast</h2>
+      {forecastData ? (
+        <TangentView data={forecastData} layout="column" />
+      ) : (
+        <div className="flex justify-center items-center h-full w-full">
+          <VscLoading className="text-4xl animate-spin text-gray-500" />
+        </div>
+      )}
     </div>
   );
 };

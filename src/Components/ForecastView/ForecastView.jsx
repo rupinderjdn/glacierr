@@ -1,21 +1,38 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import TangentView from "../../Utilities/TangentView/TangentView";
+import { convertTimeTo12HourFormat } from "../../Utilities/commonUtils";
+import { VscLoading } from "react-icons/vsc";
 
-const ForecastView = () => {
-  // Default seven-day forecast data
-  const defaultData = [
-    { date: "Mon", condition: "Sunny", temperature: 25 },
-    { date: "Tue", condition: "Cloudy", temperature: 22 },
-    { date: "Wed", condition: "Rainy", temperature: 19 },
-    { date: "Thu", condition: "Windy", temperature: 21 },
-    { date: "Fri", condition: "Snowy", temperature: -1 },
-    { date: "Sat", condition: "Stormy", temperature: 18 },
-    { date: "Sun", condition: "Foggy", temperature: 17 },
-  ];
+const ForecastView = ({ todayForecast }) => {
+  const [forecastData, setForecastData] = useState();
+
+  useEffect(() => {
+    if (todayForecast !== undefined) {
+      const data = todayForecast.hour.map((hour) => {
+        const { condition, temp_c, time } = hour;
+        const { text, icon } = condition;
+        const timestamp = time.split(" ")[1];
+
+        return {
+          date: convertTimeTo12HourFormat(timestamp),
+          condition: text,
+          image: icon,
+          temperature: temp_c,
+        };
+      });
+      setForecastData(data);
+    }
+  }, [todayForecast]);
 
   return (
-    <div className="p-4">
-      <TangentView data={defaultData} layout="row" />
+    <div className="p-4 h-full w-full">
+      {forecastData ? (
+        <TangentView data={forecastData} layout="row" />
+      ) : (
+        <div className="flex justify-center items-center h-full w-full">
+          <VscLoading className="text-4xl animate-spin text-gray-500" />
+        </div>
+      )}
     </div>
   );
 };
