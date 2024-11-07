@@ -8,7 +8,7 @@ import { PiWindBold } from "react-icons/pi";
 const SideMenuView = (props) => {
   return (
     <div
-      className="mr-8 py-8 h-full shadow-3xl bg-platform-2 flex flex-col items-center"
+      className="mr-8 py-8 h-full platform-gradient-3 shadow-3xl bg-platform-2 flex flex-col items-center"
     >
       <div className="flex my-4 px-1 flex-col items-center bg-platform-3 rounded-2xl text-cyan-700 cursor-pointer transition-colors md:my-6  hover:brightness-125">
         <PiWindBold className="px-1 mb-2 text-4xl  md:text-4xl text-center" />

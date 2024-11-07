@@ -223,13 +223,13 @@ tbody {
     background-image: linear-gradient(to right, whitesmoke, #fbc7d4);
 }
 .platform-gradient-1{
-    background:linear-gradient(to right, var(--color-bg-1),var(--color-bg-3))
+    background:linear-gradient(to right, var(--color-bg-1),var(--color-bg-4))
 }
 .platform-gradient-2{
-    background:linear-gradient(to right, var(--color-bg-3),var(--color-bg-1))
+    background:linear-gradient(to right, var(--color-bg-3),var(--color-bg-2))
 }
 .platform-gradient-3{
-    background:linear-gradient(to bottom, var(--color-bg-1),var(--color-bg-3))
+    background:linear-gradient(to bottom, var(--color-bg-2),var(--color-bg-3))
 }
 .platform-gradient-4{
     background:linear-gradient(to bottom, var(--color-bg-1),var(--color-bg-3) 50%,var(--color-bg-1))

@@ -13,6 +13,8 @@ const WeatherDetailsView = ({ selectedCity }) => {
   const [weatherText, setWeatherText] = useState();
   const [todayForecast,setTodayForecast] = useState(); 
   const [weekForecast,setWeekForecast] = useState(); 
+  const [currentWeather,setCurrentWeather] = useState();
+
 
   useEffect(() => {
     if (selectedCity == undefined) {
@@ -36,7 +38,7 @@ const WeatherDetailsView = ({ selectedCity }) => {
             setWeekForecast(forecastday);
             const todayForecast = forecastday[0];
             setTodayForecast(todayForecast);
-
+            setCurrentWeather(current);
           } else {
             // Handle error in fetching location
           }
@@ -60,14 +62,14 @@ const WeatherDetailsView = ({ selectedCity }) => {
             weatherText={weatherText}
           />
         </div>
-        <div className="h-1/3 flex-1 shadow-3xl p-2 m-2 rounded-xl bg-platform-2">
+        <div className="h-1/3 flex-1 shadow-3xl p-2 platform-gradient-2 m-2 rounded-xl bg-platform-2">
           <ForecastView todayForecast={todayForecast}/>
         </div>
-        <div className="h-1/3 flex-1 shadow-3xl p-2 m-2 rounded-xl bg-platform-2">
-          <AirConditionsView />
+        <div className="h-1/3 flex-1 platform-gradient-2 shadow-3xl p-2 m-2 rounded-xl bg-platform-2">
+          <AirConditionsView todayForecast={currentWeather}/>
         </div>
       </div>
-      <div className=" m-2  bg-platform-2 p-2 shadow-3xl rounded-xl">
+      <div className="platform-gradient-3 m-2 h-full bg-platform-2 p-2 shadow-3xl rounded-xl">
         <WeekForecastView weekForecast={weekForecast}/>
       </div>
     </div>

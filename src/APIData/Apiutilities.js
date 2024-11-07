@@ -22,7 +22,7 @@ export const getCurrentUrlLat = (lat, long) => {
     lat +
     "," +
     long +
-    "&aqi=no";
+    "&aqi=yes";
   return url;
 };
 
@@ -37,7 +37,7 @@ export const getForecastUrl = (lat, long, days) => {
     long +
     "&days=" +
     days +
-    "&aqi=no" +
+    "&aqi=yes" +
     "&alerts=no";
   return url;
 };
