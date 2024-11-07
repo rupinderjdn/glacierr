@@ -7,6 +7,7 @@ import { PiWindBold } from "react-icons/pi";
 import { tabSelected } from "./SideMenuController";
 import { CITIES_TAB, SELECTED_TAB, SETTINGS_TAB, WEATHER_TAB } from "../../Store/storeConstants";
 import { useSelector } from "react-redux";
+import { CiCloudRainbow } from "react-icons/ci";
 
 const SideMenuView = (props) => {
 
@@ -19,7 +20,7 @@ const SideMenuView = (props) => {
       className="mr-8 py-8 h-full platform-gradient-3 shadow-3xl bg-platform-2 flex flex-col items-center"
     >
       <div className="flex my-4 px-1 flex-col items-center bg-platform-3 rounded-2xl text-cyan-700 cursor-pointer transition-colors md:my-6  hover:brightness-125">
-        <PiWindBold className="px-1 mb-2 text-4xl  md:text-4xl text-center" />
+        <CiCloudRainbow className="px-1 mb-2 text-4xl  md:text-4xl text-center" />
       </div>
       <div onClick={()=>tabSelected(WEATHER_TAB)}  className={`flex my-4 px-2 flex-col items-center hover:text-gray-400 cursor-pointer transition-colors md:my-6 text-gray-500 ${selectedTab == WEATHER_TAB ? "text-gray-200 brightness-125" :""}`}>
         <TiWeatherWindyCloudy className="px-1 mb-2 text-3xl md:text-4xl text-center" />

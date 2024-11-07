@@ -11,14 +11,9 @@ const DashboardView = props => {
   return (
     <div className='h-full platform-gradient-1 w-full'>
       <div className='flex flex-row items-center h-full '>
-        <div className="flex flex-col w-full h-full ">
-          <div className='w-full md:w-1/2'>
-            <SearchbarView />
-          </div>
           <div className='w-full h-full mb-4'>
             <WeatherDetailsView />
           </div>
-        </div>
       </div>
     </div>
   )

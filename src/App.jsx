@@ -1,7 +1,12 @@
 import { useEffect, useState } from "react";
 import "./App.css";
 import DashboardView from "./Components/DashBoard/DashboardView";
-import { CITIES_TAB, SELECTED_TAB, SETTINGS_TAB, WEATHER_TAB } from "./Store/storeConstants";
+import {
+  CITIES_TAB,
+  SELECTED_TAB,
+  SETTINGS_TAB,
+  WEATHER_TAB,
+} from "./Store/storeConstants";
 import { useSelector } from "react-redux";
 import CitiesView from "./Components/CitiesView/CitiesView";
 import SideMenuView from "./Components/Sidemenu/SideMenuView";
@@ -19,15 +24,16 @@ function App() {
           <div className=" w-1/12 md:w-1/12 h-full ">
             <SideMenuView />
           </div>
-          <div className=" w-11/12">
-
+          <div className=" w-11/12 flex flex-col h-full justify-start">
+            <div className="w-full md:w-1/2">
+              <SearchbarView />
+            </div>
             {selectedTab == WEATHER_TAB && <DashboardView />}
             {selectedTab == CITIES_TAB && <CitiesView />}
             {selectedTab == SETTINGS_TAB && <SettingsView />}
           </div>
         </div>
       </div>
-
     </>
   );
 }
