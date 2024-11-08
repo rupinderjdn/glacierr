@@ -86,7 +86,7 @@ const WeatherDetailsView = () => {
           <AirConditionsView todayForecast={currentWeather}/>
         </div>
       </div>
-      <div className="platform-gradient-3 m-1 mb-0 h-[88vh] bg-platform-2  shadow-3xl rounded-xl">
+      <div className="col-span-3 md:col-span-1 platform-gradient-3 m-1 mb-0 h-full md:h-[88vh] bg-platform-2  shadow-3xl rounded-xl">
         <WeekForecastView weekForecast={weekForecast}/>
       </div>
     </div>

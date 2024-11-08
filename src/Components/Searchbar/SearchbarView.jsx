@@ -84,9 +84,9 @@ const SearchbarView = (props) => {
       <div className="flex flex-row  items-center">
         <div
           onClick={() => tabSelected(WEATHER_TAB)}
-          className={`flex px-2 flex-col items-center hover:brightness-125 hover:text-gray-400 cursor-pointer transition-colors ${
+          className={`flex px-2 flex-col items-center hover:brightness-125 hover:text-gray-400 cursor-pointer transition-all ${
             selectedTab === WEATHER_TAB
-              ? "text-gray-200 brightness-125"
+              ? "text-gray-200 bg-platform-1 rounded-xl brightness-125"
               : "text-gray-400"
           }`}
         >
@@ -94,9 +94,9 @@ const SearchbarView = (props) => {
         </div>
         <div
           onClick={() => tabSelected(CITIES_TAB)}
-          className={`px-2 flex flex-col items-center hover:brightness-125 cursor-pointer transition-colors ${
+          className={`px-2 flex flex-col items-center hover:brightness-125 cursor-pointer transition-all ${
             selectedTab === CITIES_TAB
-              ? "text-gray-200 brightness-125"
+              ? "text-gray-200 bg-platform-1  rounded-xl brightness-125"
               : "text-gray-400"
           }`}
         >
@@ -104,9 +104,9 @@ const SearchbarView = (props) => {
         </div>
         <div
           onClick={() => tabSelected(SETTINGS_TAB)}
-          className={`px-2 flex flex-col items-center hover:brightness-125 hover:text-gray-400 cursor-pointer transition-colors ${
+          className={`px-2 flex flex-col items-center hover:brightness-125 hover:text-gray-400 cursor-pointer transition-all ${
             selectedTab === SETTINGS_TAB
-              ? "text-gray-200 brightness-125"
+              ? "text-gray-200 bg-platform-1 rounded-xl brightness-125"
               : "text-gray-400"
           }`}
         >

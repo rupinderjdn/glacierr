@@ -11,7 +11,7 @@ const TangentView = ({ data, layout }) => {
       <div
         className={`flex ${
           layout === "row"
-            ? "items-center flex-row space-x-1 overflow-x-auto"
+            ? "items-center mb-1 flex-row space-x-1 overflow-x-auto"
             : "flex-col space-y-1  overflow-y-scroll  h-[95%]" // Add h-80 or any height to enable vertical scrolling
         }`}
       >
@@ -21,14 +21,14 @@ const TangentView = ({ data, layout }) => {
               key={index}
               className={`bg-dark-blue-700  border border-gray-600 border-l-0 border-t-0 flex items-center ${
                 layout === "row"
-                  ? "flex-col justify-between items-center my-2 mb-0 border-b-0 max-h-[full] "
+                  ? "flex-col mb-1 px-2 justify-between items-center my-2 mb-0 border-b-0 max-h-[full] "
                   : "border-r-0 flex-row mx-2 justify-between max-w-[full]"
               }`}
             >
-              <div className="text-sm md:text-md font-semibold w-[7vw] text-center">{day.date}</div>
+              <div className="text-[.6rem] sm:text-sm md:text-md font-semibold w-[7vw] text-center">{day.date}</div>
               <img src={day.image} alt="Weather Icon" className="self-end  " />
               <div className=" text-gray-500 text-xs font-semibold  text-center">{day.condition}</div>
-              <div className="text-sm md:text-md font-bold  text-center">{selectedUnit === "C" ? day.temperature + "°C":day.temp_f +"°F"}</div>
+              <div className="text-[.6rem] sm:text-sm md:text-md font-bold  text-center">{selectedUnit === "C" ? day.temperature + "°C":day.temp_f +"°F"}</div>
             </div>
           ))}
       </div>
