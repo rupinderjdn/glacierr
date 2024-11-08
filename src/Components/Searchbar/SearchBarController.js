@@ -1,4 +1,4 @@
-import { fetchAsyncRequest, getSearchUrl, getSearchUrlName } from "../../APIData/Apiutilities"
+import { fetchAsyncRequest, getCurrentUrlLat, getSearchUrl, getSearchUrlName } from "../../APIData/Apiutilities"
 import { appendCityData } from "../../Utilities/commonUtils";
 
 export const setCityDataToReduxLatLong = async (lat,long)=>{

@@ -8,18 +8,18 @@ import { VscLoading } from "react-icons/vsc";
 const CurrentCityWeatherView = ({ place,image,temp,weatherText }) => {
 
   return (
-    <div className="grid  grid-cols-3 p-4 h-full">
+    <div className="grid  grid-cols-3 p-4 py-1 h-full">
       {place ? (
         <>
           <div className=" flex-col col-span-2 flex justify-between h-full">
             <div>
-              <div className="text-4xl font-bold">{place}</div>
-              <div className="mt-3 text-lg">{weatherText}</div>
+              <div className="text-md md:text-lg lg:text-xxl font-bold">{place}</div>
+              <div className="mt-3 text-xs md:text-sm text-gray-600 lg:text-lg ">{weatherText}</div>
             </div>
-            <div className="text-4xl font-bold">{temp}°C</div>
+            <div className="text-md md:text-lg lg:text-xxl font-bold">{temp}°C</div>
           </div>
-          <div className="text-right flex flex-col justify-between h-full">
-            <img src={image} alt="Weather Icon" className="self-end h-[20vh]" />
+          <div className="text-right flex flex-col justify-center h-full">
+            <img src={image} alt="Weather Icon" className="self-end h-[15vh]" />
           </div>
         </>
       ) : (

@@ -14,16 +14,16 @@ const TangentView = ({ data, layout }) => {
           data.map((day, index) => (
             <div
               key={index}
-              className={`bg-dark-blue-700 p-4 border border-gray-600 border-l-0 border-t-0 flex items-center ${
+              className={`bg-dark-blue-700  border border-gray-600 border-l-0 border-t-0 flex items-center ${
                 layout === "row"
-                  ? "flex-col justify-between border-b-0 "
-                  : "border-r-0 flex-row justify-between"
+                  ? "flex-col justify-between my-2 mb-0 border-b-0 max-h-[full] "
+                  : "border-r-0 flex-row mx-2 justify-between max-w-[full]"
               }`}
             >
-              <div className="text-lg font-semibold w-20 text-center">{day.date}</div>
+              <div className="text-sm md:text-md font-semibold w-[7vw] text-center">{day.date}</div>
               <img src={day.image} alt="Weather Icon" className="self-end" />
-              <div className=" text-gray-500 font-semibold w-20 text-center">{day.condition}</div>
-              <div className="text-xl font-bold mt-2 text-center">{day.temperature}°C</div>
+              <div className=" text-gray-500 text-xs font-semibold  text-center">{day.condition}</div>
+              <div className="text-sm md:text-md font-bold  text-center">{day.temperature}°C</div>
             </div>
           ))}
       </div>
