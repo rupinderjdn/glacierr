@@ -4,9 +4,13 @@ import { getCurrentWeather } from "../WeatherDetailView/WeatherDetailsRemote";
 import { ERR_CODE } from "../../Utilities/applicationConstants";
 import { AiOutlineLoading3Quarters } from "react-icons/ai"; // Example loading icon from react-icons
 import { VscLoading } from "react-icons/vsc";
+import { useSelector } from "react-redux";
+import { SELECTED_TEMP_UNIT } from "../../Store/storeConstants";
 
-const CurrentCityWeatherView = ({ place,image,temp,weatherText }) => {
+const CurrentCityWeatherView = ({ place,image,temp,weatherText,temp_f }) => {
 
+  const selectedUnit = useSelector((state)=>state.startupData.data[SELECTED_TEMP_UNIT]);
+  
   return (
     <div className="grid  grid-cols-3 p-4 py-1 h-full">
       {place ? (
@@ -16,7 +20,7 @@ const CurrentCityWeatherView = ({ place,image,temp,weatherText }) => {
               <div className="text-md md:text-lg lg:text-xxl font-bold">{place}</div>
               <div className="mt-3 text-xs md:text-sm text-gray-600 lg:text-lg ">{weatherText}</div>
             </div>
-            <div className="text-md md:text-lg lg:text-xxl font-bold">{temp}°C</div>
+            <div className="text-md md:text-lg lg:text-xxl font-bold">{selectedUnit === "C" ? temp + "°C": temp_f +"°F"}</div>
           </div>
           <div className="text-right flex flex-col justify-center h-full">
             <img src={image} alt="Weather Icon" className="self-end h-[15vh]" />

@@ -11,13 +11,14 @@ const WeekForecastView = ({ weekForecast }) => {
       const data = weekForecast.map((singleDay) => {
         const { date, day } = singleDay;
         const dayName = new Date(date).getDay();
-        const { condition, avgtemp_c } = day;
+        const { condition, avgtemp_c,avgtemp_f } = day;
         const { text, icon } = condition;
 
         return {
           date: getShortDayName(dayName),
           image: icon,
           condition: text,
+          temp_f: avgtemp_f,
           temperature: avgtemp_c,
         };
       });

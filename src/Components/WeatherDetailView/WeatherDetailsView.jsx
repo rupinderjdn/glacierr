@@ -17,6 +17,7 @@ const WeatherDetailsView = () => {
   const [place, setPlace] = useState();
   const [image, setImage] = useState();
   const [temp, setTemp] = useState();
+  const [temp_f, setTemp_F] = useState();
   const [weatherText, setWeatherText] = useState();
   const [todayForecast,setTodayForecast] = useState(); 
   const [weekForecast,setWeekForecast] = useState(); 
@@ -33,12 +34,13 @@ const WeatherDetailsView = () => {
         if (response !== ERR_CODE) {
           
           const { current, location, forecast } = response;
-          const { condition, temp_c } = current;
+          const { condition, temp_c,temp_f } = current;
           const { text, icon } = condition;
           const { country, name, region } = location;
           setPlace(`${name}, ${region}, ${country}`);
           setImage(icon);
           setTemp(temp_c);
+          setTemp_F(temp_f);
           setWeatherText(text);
 
           const {forecastday} = forecast;
@@ -73,6 +75,7 @@ const WeatherDetailsView = () => {
             place={place}
             image={image}
             temp={temp}
+            temp_f={temp_f}
             weatherText={weatherText}
           />
         </div>

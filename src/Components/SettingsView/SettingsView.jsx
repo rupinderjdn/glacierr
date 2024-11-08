@@ -1,14 +1,16 @@
 import React, { useState } from "react";
 import PropTypes from "prop-types";
 import ToggleButton from "react-toggle-button";
+import { setStartupData } from "../../Utilities/commonUtils";
+import { SELECTED_TEMP_UNIT } from "../../Store/storeConstants";
+import { useSelector } from "react-redux";
 
 const SettingsView = (props) => {
-  const [temperatureUnit, setTemperatureUnit] = useState("C");
+  const temperatureUnit = useSelector((state)=>state.startupData.data[SELECTED_TEMP_UNIT]);
 
   const toggleTemperatureUnit = () => {
-    setTemperatureUnit((prevUnit) =>
-      prevUnit === "C" ? "F" : "C"
-    );
+    const newUnit =  temperatureUnit === "C" ? "F" : "C"
+    setStartupData(SELECTED_TEMP_UNIT,newUnit)
   };
 
   return (
@@ -20,14 +22,14 @@ const SettingsView = (props) => {
           <ToggleButton
             colors={{
               activeThumb: {
-                base: 'rgb(250,250,250)',
+                base: 'rgb(62,130,247)',
               },
               inactiveThumb: {
                 base: 'rgb(62,130,247)',
               },
               active: {
-                base: 'rgb(207,221,245)',
-                hover: 'rgb(177, 191, 215)',
+                base: 'rgb(65,66,68)',
+                hover: 'rgb(95,96,98)',
               },
               inactive: {
                 base: 'rgb(65,66,68)',
@@ -40,7 +42,7 @@ const SettingsView = (props) => {
             onToggle={toggleTemperatureUnit}
             thumbStyle={{
               borderRadius: 20,
-              backgroundColor: "white",
+              backgroundColor: "#3b82f6",
               boxShadow: "0 0 2px rgba(0,0,0,0.3)",
             }}
             trackStyle={{

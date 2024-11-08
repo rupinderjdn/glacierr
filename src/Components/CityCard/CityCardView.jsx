@@ -3,21 +3,29 @@ import PropTypes from "prop-types";
 import { getCurrentWeather } from "../WeatherDetailView/WeatherDetailsRemote";
 import { VscLoading } from "react-icons/vsc";
 import { handleCityCardClick } from "./CityCardController";
+import { useSelector } from "react-redux";
+import { SELECTED_TEMP_UNIT } from "../../Store/storeConstants";
 
 const CityCardView = ({ city }) => {
+
+  const selectedUnit = useSelector((state)=>state.startupData.data[SELECTED_TEMP_UNIT]);
+  
+
   const [image, setImage] = useState();
   const [temp, setTemp] = useState();
+  const [temp_f, setTemp_f] = useState();
   const [weatherText, setWeatherText] = useState();
   const [mask, setMask] = useState(true);
   useEffect(() => {
     getCurrentWeather(city.lat, city.lon).then((response) => {
       const { current, location } = response;
-      const { condition, temp_c } = current;
+      const { condition, temp_c, temp_f } = current;
       const { text, icon } = condition;
       // const { country, name, region } = location;
       // setPlace(`${name}, ${region}, ${country}`);
       setImage(icon);
       setTemp(temp_c);
+      setTemp_f(temp_f);
       setWeatherText(text);
       setMask(false);
     })
@@ -38,7 +46,7 @@ const CityCardView = ({ city }) => {
             <div className="mt-2 text-xs text-gray-300">
               Lat: {city.lat} | Lon: {city.lon}
             </div>
-            <div className="mt-2 text-lg font-bold text-gray-300">{temp}°C</div>
+            <div className="mt-2 text-lg font-bold text-gray-300">{selectedUnit === "C" ? temp + "°C": temp_f +"°F"}</div>
           </div>
 
           <div className="flex flex-col justify-center items-center col-span-1">

@@ -1,6 +1,11 @@
 import PropTypes from "prop-types";
+import { useSelector } from "react-redux";
+import { SELECTED_TEMP_UNIT } from "../../Store/storeConstants";
 
 const TangentView = ({ data, layout }) => {
+
+  const selectedUnit = useSelector((state)=>state.startupData.data[SELECTED_TEMP_UNIT]);
+
   return (
     <div className="bg-dark-blue-900 text-white h-full rounded-lg">
       <div
@@ -23,7 +28,7 @@ const TangentView = ({ data, layout }) => {
               <div className="text-sm md:text-md font-semibold w-[7vw] text-center">{day.date}</div>
               <img src={day.image} alt="Weather Icon" className="self-end  " />
               <div className=" text-gray-500 text-xs font-semibold  text-center">{day.condition}</div>
-              <div className="text-sm md:text-md font-bold  text-center">{day.temperature}°C</div>
+              <div className="text-sm md:text-md font-bold  text-center">{selectedUnit === "C" ? day.temperature + "°C":day.temp_f +"°F"}</div>
             </div>
           ))}
       </div>
