@@ -12,7 +12,7 @@ const CitiesView = (props) => {
   return (
     <div className="h-full w-full">
       {cities && cities.length > 0 ? (
-        <div className="mt-4 p-4 gap-4 grid grid-cols-4">
+        <div className="mt-4 p-4 gap-4 grid md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-4">
           {
             cities.map((city)=>{
               return (
