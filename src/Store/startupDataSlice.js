@@ -1,12 +1,13 @@
 import { createSelector } from '@reduxjs/toolkit';
 import { createSlice } from '@reduxjs/toolkit'
-import { SELECTED_TAB, WEATHER_TAB } from './storeConstants';
+import { SELECTED_TAB, SELECTED_TEMP_UNIT, WEATHER_TAB } from './storeConstants';
 
 export const startupDataSlice = createSlice({
   name: 'startupDataSlice',
   initialState: {
     data: {
-      [SELECTED_TAB] : WEATHER_TAB
+      [SELECTED_TAB] : WEATHER_TAB,
+      [SELECTED_TEMP_UNIT] : "C",
     }
   },
   reducers: {
