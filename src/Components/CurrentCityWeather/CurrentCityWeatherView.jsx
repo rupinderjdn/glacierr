@@ -17,10 +17,10 @@ const CurrentCityWeatherView = ({ place,image,temp,weatherText,temp_f }) => {
         <>
           <div className=" flex-col col-span-2 flex justify-between h-full">
             <div>
-              <div className="text-md md:text-lg lg:text-xxl font-bold">{place}</div>
+              <div className="text-md sm:text-lg md:text-lg lg:text-xxl font-bold">{place}</div>
               <div className="mt-3 text-xs md:text-sm text-gray-600 lg:text-lg ">{weatherText}</div>
             </div>
-            <div className="text-md md:text-lg lg:text-xxl font-bold">{selectedUnit === "C" ? temp + "°C": temp_f +"°F"}</div>
+            <div className="text-md sm:text-lg md:text-lg lg:text-xxl font-bold">{selectedUnit === "C" ? temp + "°C": temp_f +"°F"}</div>
           </div>
           <div className="text-right flex flex-col justify-center h-full">
             <img src={image} alt="Weather Icon" className="self-end h-[15vh]" />

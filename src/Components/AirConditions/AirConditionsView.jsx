@@ -26,9 +26,9 @@ const AirConditionsView = ({ todayForecast }) => {
     todayForecast;
 
   return (
-    <div className="flex flex-col p-1 justify-around text-white rounded-lg h-full">
-      <div className="flex flex-row justify-between">
-        <div className="md:text-md text-sm ml-4 font-semibold">Air Conditions</div>
+    <div className="flex flex-col p-1 sm:p-4 justify-start text-white rounded-lg h-full">
+      <div className="flex flex-row justify-between sm:mb-6">
+        <div className="md:text-md sm:text-md text-sm ml-4 font-semibold">Air Conditions</div>
       </div>
       <div className="grid grid-cols-2 gap-4">
         <div className="flex flex-col pl-4 justify-between gap-4">

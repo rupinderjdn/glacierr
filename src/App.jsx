@@ -19,18 +19,20 @@ function App() {
   );
   return (
     <>
-      <div className=" min-h-[full] platform-gradient-1 w-full">
+      <div className="  platform-gradient-1 w-full">
         <div className="flex flex-row items-center h-full ">
           {/* <div className=" w-1/12 md:w-1/12 h-full ">
             <SideMenuView />
           </div> */}
-          <div className=" w-full flex flex-col h-full justify-start">
+          <div className=" w-full flex flex-col  justify-start">
             <div className="w-full ">
               <SearchbarView />
             </div>
-            {selectedTab == WEATHER_TAB && <DashboardView />}
-            {selectedTab == CITIES_TAB && <CitiesView />}
-            {selectedTab == SETTINGS_TAB && <SettingsView />}
+            <div className="">
+              {selectedTab == WEATHER_TAB && <DashboardView />}
+              {selectedTab == CITIES_TAB && <CitiesView />}
+              {selectedTab == SETTINGS_TAB && <SettingsView />}
+            </div>
           </div>
         </div>
       </div>

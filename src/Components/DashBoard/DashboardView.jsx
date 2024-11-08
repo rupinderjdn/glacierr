@@ -7,7 +7,7 @@ import WeatherDetailsView from "../WeatherDetailView/WeatherDetailsView";
 const DashboardView = (props) => {
   return (
     <div className="h-full platform-gradient-1 w-full">
-      <div className="w-full h-full mb-4">
+      <div className="w-full h-full ">
         <WeatherDetailsView />
       </div>
     </div>
