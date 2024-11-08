@@ -1,0 +1,1 @@
+export {openComponent,closeComponent} from "./ModalManager"
