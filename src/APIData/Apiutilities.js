@@ -9,7 +9,7 @@ export const fetchAsyncRequest = async (url) => {
     return json;
   } catch (e) {
     console.err(e);
-    return ERR_CODE;
+    throw new Error(e);
   }
 };
 

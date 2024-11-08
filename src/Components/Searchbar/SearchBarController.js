@@ -11,3 +11,7 @@ export const searchCityFromText = async (city)=>{
     const response = await fetchAsyncRequest(getSearchUrlName(city));
     return response;
 }
+
+export const handleCityClick = (city)=>{
+    appendCityData(city)
+}

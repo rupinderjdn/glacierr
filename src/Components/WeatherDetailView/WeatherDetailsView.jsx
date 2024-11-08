@@ -58,7 +58,7 @@ const WeatherDetailsView = ({ selectedCity }) => {
   return (
     <div className="grid grid-cols-3 gap-4 text-color-1 capitalize h-full">
       <div className="flex flex-col  col-span-3 md:col-span-2">
-        <div className="h-1/3 flex-1   m-1  rounded-xl ">
+        <div className=" h-1/4 flex-1    m-1  rounded-xl ">
           <CurrentCityWeatherView
             place={place}
             image={image}
@@ -66,10 +66,10 @@ const WeatherDetailsView = ({ selectedCity }) => {
             weatherText={weatherText}
           />
         </div>
-        <div className="h-1/3 flex-1 shadow-3xl  platform-gradient-2 m-1 rounded-xl bg-platform-2">
+        <div className="h-1/4 flex-1 shadow-3xl  platform-gradient-2 m-1 rounded-xl bg-platform-2">
           <ForecastView todayForecast={todayForecast}/>
         </div>
-        <div className="h-1/3 flex-1 platform-gradient-2 shadow-3xl  m-1 rounded-xl bg-platform-2">
+        <div className="h-1/4 flex-1 platform-gradient-2 shadow-3xl  m-1 rounded-xl bg-platform-2">
           <AirConditionsView todayForecast={currentWeather}/>
         </div>
       </div>
