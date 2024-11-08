@@ -15,8 +15,7 @@ const AirConditionsView = ({ todayForecast }) => {
   if (!todayForecast) {
     return (
       <div className="flex justify-center items-center h-full text-white">
-        <VscLoading className="text-4xl animate-spin" />
-        <span className="ml-2 text-lg">Loading...</span>
+        <VscLoading className="text-3xl text-gray-500 animate-spin" />
       </div>
     );
   }

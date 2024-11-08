@@ -22,9 +22,9 @@ export default ({ mode }) => {
         // }, // Exclude image file types
 
         output: {
-          dir: "./public/deploy",
+          dir: "./build",
           entryFileNames: "bundle.js",
-          assetFileNames: "assets/bundle[extname]",
+          assetFileNames: "bundle[extname]",
         },
       },
     },
