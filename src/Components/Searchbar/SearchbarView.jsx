@@ -48,13 +48,13 @@ const SearchbarView = (props) => {
   
 
   return (
-    <div className="flex flex-row justify-between p-1 m-2 mt-1 mb-0 shadow-3xl bg-platform-2 rounded-lg text-gray-400">
-      <div className="flex flex-row items-center">
-        <CiSearch className="text-gray-300 text-xl" />
+    <div className="grid grid-cols-5 p-1 m-2 mt-1 mb-0 shadow-3xl bg-platform-2 rounded-lg text-gray-400">
+      <div className="flex flex-row col-span-3 items-center">
+        {/* <CiSearch className="text-gray-300 text-xl" /> */}
         <input
           value={value}
           onChange={(e) => setValue(e.target.value)}
-          className="px-4 py-1 platform-gradient-2 text-sm flex-1 focus:border-none focus:outline-none focus:border-transparent ml-4 rounded-lg bg-inherit border-none select-none"
+          className=" py-1 platform-gradient-2 text-sm flex-1 focus:border-none focus:outline-none focus:border-transparent rounded-lg bg-inherit border-none select-none"
           placeholder="Search for cities"
         />
       </div>
@@ -81,7 +81,7 @@ const SearchbarView = (props) => {
       )}
 
       {/* Tabs for navigation */}
-      <div className="flex flex-row  items-center">
+      <div className="flex  col-span-2 flex-row justify-end items-center">
         <div
           onClick={() => tabSelected(WEATHER_TAB)}
           className={`flex px-2 flex-col items-center hover:brightness-125 hover:text-gray-400 cursor-pointer transition-all ${
