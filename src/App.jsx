@@ -19,7 +19,7 @@ function App() {
   );
   return (
     <>
-      <div className="  platform-gradient-1 w-full">
+      <div id="bgRoot" className="platform-gradient-1  w-full">
         <div className="flex flex-row items-center h-full ">
           {/* <div className=" w-1/12 md:w-1/12 h-full ">
             <SideMenuView />

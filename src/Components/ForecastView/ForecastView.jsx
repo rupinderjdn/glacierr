@@ -26,7 +26,7 @@ const ForecastView = ({ todayForecast }) => {
   }, [todayForecast]);
 
   return (
-    <div className="p-2  h-full w-full flex flex-col">
+    <div className="p-2  h-full w-full flex flex-col justify-between">
       <div className="ml-2 uppercase  text-xs ">Today's Forecast</div>
       {forecastData ? (
         <TangentView data={forecastData} layout="row" />
