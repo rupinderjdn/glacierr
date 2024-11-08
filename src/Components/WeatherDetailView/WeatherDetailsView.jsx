@@ -7,9 +7,13 @@ import AirConditionsView from "../AirConditions/AirConditionsView";
 import { getCurrentWeather, getForeCastLatLong } from "./WeatherDetailsRemote";
 import { ERR_CODE } from "../../Utilities/applicationConstants";
 import { setCityDataToReduxLatLong } from "../Searchbar/SearchBarController";
-const WeatherDetailsView = ({ selectedCity }) => {
+import { useSelector } from "react-redux";
+import { SELECTED_CITY } from "../../Store/storeConstants";
+const WeatherDetailsView = () => {
 
-  
+  const selectedCity = useSelector((state)=> state.startupData.data[SELECTED_CITY]);
+  console.log(selectedCity)
+
   const [place, setPlace] = useState();
   const [image, setImage] = useState();
   const [temp, setTemp] = useState();
@@ -20,45 +24,51 @@ const WeatherDetailsView = ({ selectedCity }) => {
 
 
   useEffect(() => {
+
+    const handleCityUpdate = (latitude,longitude)=>{
+      setCityDataToReduxLatLong(latitude,longitude);
+
+      getForeCastLatLong(latitude,longitude,7).then((response) => {
+        console.log(response);
+        if (response !== ERR_CODE) {
+          
+          const { current, location, forecast } = response;
+          const { condition, temp_c } = current;
+          const { text, icon } = condition;
+          const { country, name, region } = location;
+          setPlace(`${name}, ${region}, ${country}`);
+          setImage(icon);
+          setTemp(temp_c);
+          setWeatherText(text);
+
+          const {forecastday} = forecast;
+          setWeekForecast(forecastday);
+          const todayForecast = forecastday[0];
+          setTodayForecast(todayForecast);
+          setCurrentWeather(current);
+        } else {
+          // Handle error in fetching location
+        }
+      })
+    }
+
     if (selectedCity == undefined) {
+
       navigator.geolocation.getCurrentPosition((position) => {
         const { latitude, longitude } = position.coords;
-        setCityDataToReduxLatLong(latitude,longitude);
-
-        getForeCastLatLong(latitude,longitude,7).then((response) => {
-          console.log(response);
-          if (response !== ERR_CODE) {
-            
-            const { current, location, forecast } = response;
-            const { condition, temp_c } = current;
-            const { text, icon } = condition;
-            const { country, name, region } = location;
-            setPlace(`${name}, ${region}, ${country}`);
-            setImage(icon);
-            setTemp(temp_c);
-            setWeatherText(text);
-
-            const {forecastday} = forecast;
-            setWeekForecast(forecastday);
-            const todayForecast = forecastday[0];
-            setTodayForecast(todayForecast);
-            setCurrentWeather(current);
-          } else {
-            // Handle error in fetching location
-          }
-        })
-
-
+        handleCityUpdate(latitude,longitude)
       });
+
+
     } else {
-      // for selected city write code here
+      handleCityUpdate(selectedCity.lat,selectedCity.lon);
     }
   }, [selectedCity]);
 
   return (
     <div className="grid grid-cols-3 gap-4 text-color-1 capitalize h-full">
       <div className="flex flex-col  col-span-3 md:col-span-2">
-        <div className=" h-1/4 flex-1    m-1  rounded-xl ">
+        <div className="  flex-1    m-1  rounded-xl ">
           <CurrentCityWeatherView
             place={place}
             image={image}
@@ -66,10 +76,10 @@ const WeatherDetailsView = ({ selectedCity }) => {
             weatherText={weatherText}
           />
         </div>
-        <div className="h-1/4 flex-1 shadow-3xl  platform-gradient-2 m-1 rounded-xl bg-platform-2">
+        <div className=" flex-1 shadow-3xl  platform-gradient-2 m-1 rounded-xl bg-platform-2">
           <ForecastView todayForecast={todayForecast}/>
         </div>
-        <div className="h-1/4 flex-1 platform-gradient-2 shadow-3xl  m-1 rounded-xl bg-platform-2">
+        <div className=" flex-1 platform-gradient-2 shadow-3xl  m-1 rounded-xl bg-platform-2">
           <AirConditionsView todayForecast={currentWeather}/>
         </div>
       </div>

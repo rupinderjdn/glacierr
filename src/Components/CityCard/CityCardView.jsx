@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import PropTypes from "prop-types";
 import { getCurrentWeather } from "../WeatherDetailView/WeatherDetailsRemote";
 import { VscLoading } from "react-icons/vsc";
+import { handleCityClick } from "./CityCardController";
 
 const CityCardView = ({ city }) => {
   const [image, setImage] = useState();
@@ -26,7 +27,7 @@ const CityCardView = ({ city }) => {
   }, [city]);
 
   return (
-    <div className="platform-gradient-2 hover:brightness-125 transition-all cursor-pointer rounded-xl shadow-3xl h-40 w-90 grid grid-cols-3 p-4">
+    <div onClick={()=>handleCityClick(city)} className="platform-gradient-2 hover:brightness-125 transition-all cursor-pointer rounded-xl shadow-3xl h-40 w-90 grid grid-cols-3 p-4">
       {!mask ? (
         <>
           <div className="flex flex-col justify-center col-span-2">

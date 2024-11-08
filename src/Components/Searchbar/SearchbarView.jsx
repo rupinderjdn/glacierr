@@ -15,6 +15,7 @@ import {
 import { useSelector } from "react-redux";
 import { FaPlus } from "react-icons/fa";
 import { MdCancel } from "react-icons/md";
+import { handleCityCardClick } from "../CityCard/CityCardController";
 
 const SearchbarView = (props) => {
   const [value, setValue] = useState("");
@@ -64,7 +65,7 @@ const SearchbarView = (props) => {
           <div onClick={handleClose}  className=" cursor-pointer flex flex-row justify-end hover:brightness-150"><MdCancel  /></div>
             {searchedCities.map((city, index) => (
             <div
-              onClick = {()=>handleCityClick(city)}
+              onClick = {()=> selectedTab == CITIES_TAB ? handleCityClick(city) : handleCityCardClick(city,setSearchCities)}
               key={city.id}
               className="p-2 flex flex-row items-center justify-between border-b border-gray-500 hover:brightness-150 cursor-pointer transition-all last:border-b-0"
             >
