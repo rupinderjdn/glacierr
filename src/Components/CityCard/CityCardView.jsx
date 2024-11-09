@@ -5,12 +5,40 @@ import { VscLoading } from "react-icons/vsc";
 import { handleCityCardClick } from "./CityCardController";
 import { useSelector } from "react-redux";
 import { SELECTED_TEMP_UNIT } from "../../Store/storeConstants";
+import { weatherMap } from "../../APIData/ConditionsData";
 
 const CityCardView = ({ city }) => {
 
   const selectedUnit = useSelector((state)=>state.startupData.data[SELECTED_TEMP_UNIT]);
   
+  const [currentTime, setCurrentTime] = useState("");
 
+  // Function to get the current time in 12-hour format
+  const formatTime = () => {
+    const now = new Date();
+    let hours = now.getHours();
+    let minutes = now.getMinutes();
+    const ampm = hours >= 12 ? "PM" : "AM";
+
+    hours = hours % 12;
+    hours = hours ? hours : 12; // Convert '0' to '12'
+    minutes = minutes < 10 ? "0" + minutes : minutes; // Add leading zero to minutes if needed
+
+    return `${hours}:${minutes} ${ampm}`;
+  };
+
+  // Update the current time every minute
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentTime(formatTime());
+    }, 60000); // Update every 60 second
+
+    // Set the initial time
+    setCurrentTime(formatTime());
+
+    // Cleanup the interval on component unmount
+    return () => clearInterval(interval);
+  }, []);
   const [image, setImage] = useState();
   const [temp, setTemp] = useState();
   const [temp_f, setTemp_f] = useState();
@@ -34,25 +62,35 @@ const CityCardView = ({ city }) => {
     })
   }, [city]);
 
+
+  console.log(weatherText)
+  const backgroundStyle = {
+    background: `url(${ weatherText && weatherMap[weatherText.toLowerCase()] ?  weatherMap[weatherText.toLowerCase()].img : ""}) no-repeat center center`,
+    backgroundSize: 'cover',
+  };
+
   return (
-    <div onClick={()=>handleCityCardClick(city)} className="platform-gradient-2 hover:brightness-125 transition-all cursor-pointer rounded-xl shadow-3xl  grid grid-cols-3 p-4">
+    <div id={city.id} style={backgroundStyle} onClick={()=>handleCityCardClick(city)} className="platform-gradient-2 hover:brightness-125 transition-all cursor-pointer rounded-xl shadow-3xl  grid grid-cols-3 p-4">
       {!mask ? (
         <>
-          <div className="flex flex-col justify-center col-span-2">
-            <div className="text-lg font-semibold text-white">{city.name}</div>
-            <div className="text-sm text-gray-200">
+          <div className={`flex flex-col justify-center col-span-2 ${weatherMap[weatherText.toLowerCase()]?.text_color}`}>
+            <div className="text-lg font-semibold ">{city.name}</div>
+            <div className="text-sm font-semibold">
               {city.region}, {city.country}
             </div>
-            <div className="mt-2 text-xs text-gray-300">
+            <div className="mt-2 text-xs font-semibold ">
               Lat: {city.lat} | Lon: {city.lon}
             </div>
-            <div className="mt-2 text-lg font-bold text-gray-300">{selectedUnit === "C" ? temp + "°C": temp_f +"°F"}</div>
+            <div className="mt-2 text-lg font-bold ">{selectedUnit === "C" ? temp + "°C": temp_f +"°F"}</div>
           </div>
 
-          <div className="flex flex-col justify-center items-center col-span-1">
-            <img src={image} alt="Weather Icon" className="self-end h-[15vh]" />
-            <div className="mt-2 text-[.5rem] text-gray-400 uppercase ">
+          <div className={`text-right flex flex-col justify-between h-full ${weatherMap[weatherText.toLowerCase()]?.text_color}`}>
+            {/* <img src={image} alt="Weather Icon" className="self-end h-[15vh]" /> */}
+            <div className="text-md sm:text-lg md:text-md lg:text-md font-bold">
               {weatherText}
+            </div>
+            <div className="text-md sm:text-lg md:text-md lg:text-md font-bold">
+              {currentTime}
             </div>
           </div>
         </>

@@ -5,7 +5,12 @@ html, body {
     padding: 0;
     outline: none;
 }
-
+#currentWeather {
+    background: var(--background-image) no-repeat center center;
+    /* background: url("icePellets.gif") no-repeat center center; */
+    background-size: cover;
+  }
+  
 /* application container */
 #root {
     height: 100%;
@@ -138,6 +143,9 @@ tbody {
 /* Text Colors for platform */
 .text-color-1 {
     color: var(--color-text) !important;
+}
+.text-color-2 {
+    color: var(--color-text-2) !important;
 }
 
 /* Buttons platform */

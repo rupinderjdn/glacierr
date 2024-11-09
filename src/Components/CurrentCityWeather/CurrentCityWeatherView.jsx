@@ -3,11 +3,24 @@ import PropTypes from "prop-types";
 import { useSelector } from "react-redux";
 import { VscLoading } from "react-icons/vsc";
 import { SELECTED_TEMP_UNIT } from "../../Store/storeConstants";
+import { conditionsJSON, weatherMap } from "../../APIData/ConditionsData";
 
-const CurrentCityWeatherView = ({ place, image, temp, weatherText, temp_f }) => {
+const CurrentCityWeatherView = ({
+  place,
+  image,
+  temp,
+  weatherText,
+  temp_f,
+}) => {
   const selectedUnit = useSelector(
     (state) => state.startupData.data[SELECTED_TEMP_UNIT]
   );
+
+  // conditionsJSON.map((condition)=>{
+  //   const {day,night} = condition;
+  //   if(weatherMap[day] === undefined) console.log(day +" not present");
+  //   if(weatherMap[night] === undefined) console.log(night +" not present");
+  // })
 
   const [currentTime, setCurrentTime] = useState("");
 
@@ -29,7 +42,7 @@ const CurrentCityWeatherView = ({ place, image, temp, weatherText, temp_f }) => 
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentTime(formatTime());
-    }, 60000); // Update every 60 seconds
+    }, 60000); // Update every 60 second
 
     // Set the initial time
     setCurrentTime(formatTime());
@@ -38,13 +51,24 @@ const CurrentCityWeatherView = ({ place, image, temp, weatherText, temp_f }) => 
     return () => clearInterval(interval);
   }, []);
 
+  useEffect(() => {
+    document.documentElement.style.setProperty('--background-image', `url(${ weatherText && weatherMap[weatherText.toLowerCase()] ?  weatherMap[weatherText.toLowerCase()].img : ""})`);
+  }, [weatherText]);
+
+
   return (
-    <div id="currentWeather" className="grid rounded-lg grid-cols-3 p-4 py-1 h-full">
+    <div
+      id="currentWeather"
+      // style={backgroundStyle}
+      className="grid rounded-lg grid-cols-3 p-4 py-1 h-full"
+    >
       {place ? (
         <>
-          <div className="flex-col col-span-2 flex justify-between h-full">
+          <div className={`flex-col ${weatherMap[weatherText.toLowerCase()]?.text_color}  col-span-2 flex justify-between h-full`}>
             <div>
-              <div className="text-md sm:text-lg md:text-lg lg:text-2xl font-bold">{place}</div>
+              <div className=" text-md sm:text-lg md:text-lg lg:text-2xl font-bold">
+                {place}
+              </div>
               {/* Display the weather text and current time */}
               {/* <div className="mt-1 text-xs md:text-sm text-gray-600 lg:text-lg">
                 {weatherText}
@@ -54,10 +78,14 @@ const CurrentCityWeatherView = ({ place, image, temp, weatherText, temp_f }) => 
               {selectedUnit === "C" ? `${temp}°C` : `${temp_f}°F`}
             </div>
           </div>
-          <div className="text-right flex flex-col justify-between h-full">
+          <div className={`text-right flex flex-col justify-between h-full ${weatherMap[weatherText.toLowerCase()]?.text_color}`}>
             {/* <img src={image} alt="Weather Icon" className="self-end h-[15vh]" /> */}
-            <div className="text-md sm:text-lg md:text-lg lg:text-2xl font-bold">{weatherText}</div>
-            <div className="text-md sm:text-lg md:text-lg lg:text-2xl font-bold">{currentTime}</div>
+            <div className="text-md sm:text-lg md:text-lg lg:text-2xl font-bold">
+              {weatherText}
+            </div>
+            <div className="text-md sm:text-lg md:text-lg lg:text-2xl font-bold">
+              {currentTime}
+            </div>
           </div>
         </>
       ) : (

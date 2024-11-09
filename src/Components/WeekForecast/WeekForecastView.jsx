@@ -29,7 +29,7 @@ const WeekForecastView = ({ weekForecast }) => {
 
   return (
     <div className="p-2 rounded-xl overflow-y-auto  flex flex-col ">
-      <h2 className=" uppercase text-xs">10-day Forecast</h2>
+      <h2 className=" uppercase text-xs">14-day Forecast</h2>
       {forecastData ? (
         <TangentView data={forecastData} layout="column" />
       ) : (
